@@ -58,49 +58,80 @@ section {
   height: 45px;
 }
 
-/* .menu-item{
-  border: solid var(--primary-text);
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 5px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-} */
-
 .menu-item, a{
   color: var(--primary-text);
   padding-bottom: var(--spacing-base);
 }
 
+.menu > .menu-item > a::after, .menu > .menu-item > span::after{
+  content: '';
+  display: inline-block;
+  margin: 0 0 2px 10px;
+  border: solid var(--primary-text);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
 .submenu-container{
   display: none;
   position: absolute;
-  padding: var(--spacing-small);
   top: 45px;
-  background-color: var(--secondary-base);
+  background-color: var(--secondary-light);
   border-radius: 3px;
   min-width: 160px;
   box-shadow: 0px 1px 16px 0px var(--primary-dark);
   z-index: 1;
 }
 
+.submenu-container .menu-item{
+  padding: var(--spacing-small);
+}
+
 .submenu-container .submenu-container{
   display: none;
   position: absolute;
-  padding: var(--spacing-base);
-  left: 158px;
-  top: 18px;
-  background-color: var(--secondary-base);
+  left: 161px;
+  top: 27px;
+  background-color: var(--secondary-light);
   min-width: 160px;
-  z-index: 5;
+  z-index: 1;
 }
 
 .submenu-container .menu-item, .submenu-container a{
   color: var(--secondary-text);
-  padding: var(--spacing-small);
 }
 
 nav .menu-item:hover > .submenu-container, .submenu-container .menu-item:hover  > .submenu-container{
   display: flex;
   flex-direction: column;
+}
+
+.menu-item > .submenu-container > .menu-item > a::after{
+  content: '';
+  display: inline-block;
+  margin: 0 0 2px 90px;
+  border: solid var(--secondary-text);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.submenu-container .menu-item:hover{
+  background-color: var(--secondary-base);
+  
+}
+
+.submenu-container .menu-item:first-child:hover{
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.submenu-container .menu-item:last-child:hover{
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
